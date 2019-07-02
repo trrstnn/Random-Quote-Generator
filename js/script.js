@@ -38,6 +38,7 @@ const quotes = [
   quote : "Drunkenness is nothing but voluntary madness",
   source : "Seneca",
   citation : "Letters from a stoic",
+  category: "Humor",
   year : "63 AD" 
 },
 
@@ -68,7 +69,7 @@ const changeBgColor = () => {
 
 //Generates a random number to randomize the index that is being selected
 const getRandomQuote = () => {
-let randomNumber = Math.floor(Math.random() * 3); 
+let randomNumber = Math.floor(Math.random() * 5); 
 
 return quotes[randomNumber];
 
@@ -94,7 +95,7 @@ const printQuote = () => {
     htmlString += `<span class ='year'>${randomQuote.year}</span>`;
   }
   if (randomQuote.category) {
-    htmlString += `<span class ='category'> ${randomQuote.category}</span>`;
+    htmlString += `<span class ='category'> , ${randomQuote.category}</span>`;
   }
   htmlString += '</p>';
   document.getElementById('quote-box').innerHTML = htmlString;
@@ -111,8 +112,6 @@ const printQuote = () => {
 /***
   When the "Show another quote" button is clicked, the event listener 
   below will be triggered, and it will call, or "invoke", the `printQuote` 
-  function. So do not make any changes to the line of code below this 
-  comment.
 ***/
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
